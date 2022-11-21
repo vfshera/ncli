@@ -32,12 +32,6 @@ export function cmdOptions() {
 }
 
 //generate our commands
-export default function mapCommands() {
-  let cmd: any = {};
-
-  commands.forEach((comm) => {
-    cmd[comm.name] = Boolean;
-  });
-
-  return cmd;
+export default function mapCommands(): string[] {
+  return commands.map((comm) => comm.name);
 }

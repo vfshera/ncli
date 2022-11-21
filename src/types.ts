@@ -1,6 +1,7 @@
 export type Args = string[];
 export type Options = {
   help: boolean;
+  new: boolean;
 };
 export interface Flag {
   name: string;
