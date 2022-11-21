@@ -1,4 +1,4 @@
-import parseArguments from "./utils/parseArgs";
+import parseArgs from "./utils/parseArgs";
 
 import type { Args } from "./types";
 import welcome from "./utils/welcome";
@@ -8,7 +8,7 @@ export async function cli(args: Args) {
     welcome();
   }
 
-  const options = parseArguments(args);
+  const options = parseArgs(args);
 
   if (options?.help) {
     welcome(true);

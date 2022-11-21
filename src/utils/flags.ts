@@ -1,7 +1,8 @@
 import chalk from "chalk";
 import { Flag } from "../types";
-import createTable from "./createTable";
+import table from "./createTable";
 
+const optionsTable = table();
 // decare flags
 const flags: Flag[] = [
   {
@@ -21,21 +22,21 @@ const flags: Flag[] = [
 ];
 
 //generates options for help flag
-export function options() {
-  let flag = `${chalk.bold("Options:")} \n\n`;
+export function flagOptions() {
+  let flag = `${chalk.bgHex("#ff9248").hex("#1e1d40").bold(" OPTIONS ")} \n\n`;
 
   flags.forEach((f) => {
     let flagLeft = "";
-    flagLeft += `${chalk.yellow("--" + f.name)}`;
+    flagLeft += `${chalk.hex("#ff9248")("--" + f.name)}`;
 
     if (f.alias) {
-      flagLeft += `${chalk.yellow(", -" + f.alias)}`;
+      flagLeft += `${chalk.hex("#ff9248")(", -" + f.alias)}`;
     }
 
-    createTable.push([flagLeft, `  ${chalk.white(f.description)}`]);
+    optionsTable.push([flagLeft, `  ${chalk.white(f.description)}`]);
   });
 
-  flag += createTable.toString();
+  flag += optionsTable.toString();
 
   return flag;
 }

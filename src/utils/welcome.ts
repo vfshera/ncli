@@ -1,11 +1,11 @@
 import figlet from "figlet";
 import gradientString from "gradient-string";
-
 import { fileURLToPath } from "node:url";
 import path from "path";
 import fs from "@supercharge/filesystem";
 import chalk from "chalk";
-import { options } from "./flags";
+import { flagOptions } from "./flags";
+import { cmdOptions } from "./commands";
 
 export default async function welcome(withOptions = false) {
   const __filename = fileURLToPath(import.meta.url);
@@ -23,10 +23,24 @@ export default async function welcome(withOptions = false) {
 
     const msg = `
 ${gradientString.instagram(data)}
-${chalk.bgGreen(" v" + pkg.version + " ")} ${chalk.italic(pkg.description)}
+${chalk.hex("#33dd2d").italic("v" + pkg.version)} ${chalk.italic(
+      pkg.description
+    )}
 
-${chalk.bold.green(pkg.author)}\n
-${withOptions ? options() : ""}
+${chalk.hex("#33dd2d").bold(pkg.author)}\n
+
+${chalk.hex("#1e1d40").bgHex("#33dd2d").bold(" USAGE ")}\n
+${
+  chalk.hex("#33dd2d").italic("make-cli") +
+  "  " +
+  chalk.hex("#0087d8").italic("new") +
+  "  " +
+  chalk.hex("#ff9248").italic("[cli-name]")
+}\n
+
+${withOptions ? cmdOptions() : ""}
+
+${withOptions ? flagOptions() : ""}
     `;
 
     console.log(msg);

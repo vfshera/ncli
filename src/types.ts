@@ -7,3 +7,7 @@ export interface Flag {
   description: string;
   alias?: string | null;
 }
+export interface Command {
+  name: string;
+  description: string;
+}
