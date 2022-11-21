@@ -1,5 +1,4 @@
 import chalk from "chalk";
-import { Flag } from "../types";
 import table from "./createTable";
 
 const optionsTable = table();

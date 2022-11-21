@@ -1,5 +1,4 @@
 import chalk from "chalk";
-import { Command } from "../types";
 import table from "./createTable";
 
 const cmdTable = table();
