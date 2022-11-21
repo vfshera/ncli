@@ -26,8 +26,9 @@ ${gradientString.instagram(data)}
 ${chalk.hex("#33dd2d").italic("v" + pkg.version)} ${chalk.italic(
       pkg.description
     )}
+    
+${chalk.hex("#1e1d40").bgWhite.bold(" Made by " + pkg.author + " ")}
 
-${chalk.hex("#33dd2d").bold(pkg.author)}\n
 
 ${chalk.hex("#1e1d40").bgHex("#33dd2d").bold(" USAGE ")}\n
 ${

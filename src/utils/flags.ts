@@ -10,15 +10,6 @@ const flags: Flag[] = [
     alias: "h",
     description: "cli help",
   },
-  {
-    name: "update",
-    description: "update the cli to the latest version",
-  },
-  {
-    name: "install",
-    alias: "i",
-    description: "install the latest templates",
-  },
 ];
 
 //generates options for help flag

@@ -11,3 +11,5 @@ export interface Command {
   name: string;
   description: string;
 }
+
+export type Runner = (fn: () => void, condition: boolean) => void;
