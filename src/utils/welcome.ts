@@ -6,14 +6,18 @@ import fs from "@supercharge/filesystem";
 import chalk from "chalk";
 import { flagOptions } from "./flags";
 import { cmdOptions } from "./commands";
-import { run } from "./handler";
 
 function usage() {
   return `${chalk.hex("#1e1d40").bgHex("#33dd2d").bold(" USAGE ")}\n
   ${
     chalk.hex("#33dd2d").italic("make-cli") +
     "  " +
-    chalk.hex("#0087d8").italic("new") +
+    chalk.hex("#0087d8").italic("new")
+  } 
+  ${
+    chalk.hex("#33dd2d").italic("make-cli") +
+    "  " +
+    chalk.hex("#0087d8").italic("--new-cli") +
     "  " +
     chalk.hex("#ff9248").italic("[cli-name]")
   }`;

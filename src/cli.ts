@@ -4,15 +4,18 @@ import welcome from "./utils/welcome";
 import { run } from "./utils/handler";
 import newCli from "./scripts/newCli";
 
+const sleep = async (ms: number = 500) =>
+  new Promise((resolve) => setTimeout(resolve, ms));
+
 export async function cli(args: Args) {
-  run(welcome, args.slice(2).length === 0);
-
-  const options = parseArgs(args);
-  console.log(options);
-
-  run(newCli, options.new || options.project.length > 0, options.project);
-
-  if (options.help) {
+  if (args.includes("-h") || args.includes("--help")) {
     welcome(true);
   }
+
+  welcome();
+  await sleep();
+
+  const options = parseArgs(args);
+
+  run(newCli, options.new || options.project.length > 0, options.project);
 }
