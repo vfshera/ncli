@@ -15,4 +15,7 @@ declare interface Command {
 
 declare type Runner = (fn: () => void, condition: boolean) => void;
 
-declare module "cli-handle-unhandled";
+declare interface CustomError {
+  code: string;
+  message: string;
+}

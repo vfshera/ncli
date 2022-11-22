@@ -31,7 +31,6 @@
     "@supercharge/filesystem": "2.3.0",
     "arg": "5.0.2",
     "chalk": "5.1.2",
-    "cli-handle-unhandled": "1.1.1",
     "cli-table3": "0.6.3",
     "figlet": "1.5.2",
     "gradient-string": "2.0.2",
