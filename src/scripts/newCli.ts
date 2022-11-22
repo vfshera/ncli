@@ -1,4 +1,4 @@
-export default function newCli() {
+export default function newCli(project?: string) {
   // inquirer starts here
-  console.log("Create New CLI");
+  console.log("Create New CLI", project);
 }

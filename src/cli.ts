@@ -8,8 +8,9 @@ export async function cli(args: Args) {
   run(welcome, args.slice(2).length === 0);
 
   const options = parseArgs(args);
+  console.log(options);
 
-  run(newCli, options.new);
+  run(newCli, options.new || options.project.length > 0, options.project);
 
   if (options.help) {
     welcome(true);

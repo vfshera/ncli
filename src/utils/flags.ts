@@ -8,6 +8,13 @@ const flags: Flag[] = [
     name: "help",
     alias: "h",
     description: "cli help",
+    type: Boolean,
+  },
+  {
+    name: "new-cli",
+    alias: "n",
+    description: "make new cli",
+    type: String,
   },
 ];
 
@@ -37,7 +44,7 @@ export default function mapFlags() {
 
   flags.forEach((f) => {
     let flagName = "--" + f.name;
-    cliFlags[flagName] = Boolean;
+    cliFlags[flagName] = f.type;
     if (f.alias) {
       cliFlags["-" + f.alias] = flagName;
     }

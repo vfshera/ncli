@@ -38,6 +38,7 @@ export default function parseArgs(rawArgs: Args): Options {
   let cliArgs = {
     help: false,
     new: false,
+    project: "",
   };
 
   try {
@@ -51,7 +52,12 @@ export default function parseArgs(rawArgs: Args): Options {
 
     mapCommands().forEach((com) => (commandList[com] = args._.includes(com)));
 
-    cliArgs = { ...cliArgs, help: args["--help"] || false, ...commandList };
+    cliArgs = {
+      ...cliArgs,
+      help: args["--help"] || false,
+      project: args["--new-cli"] || "",
+      ...commandList,
+    };
   } catch (err: any) {
     process.on("uncaughtException", () => handleError(err));
     process.on("unhandledRejection", () => handleError(err));
