@@ -1,19 +1,19 @@
 {
-  "name": "make-cli",
+  "name": "ncli",
   "version": "1.0.0",
   "description": "Start making Node Cli's Faster",
   "main": "dist/cli.js",
   "type": "module",
   "bin": {
-    "@franklinshera/make-cli": "bin/make-cli.js",
-    "make-cli": "bin/make-cli.js"
+    "ncli": "bin/make-cli.js"
   },
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "dev": "rollup -c rollup.config.js --watch"
   },
   "keywords": [
-    "make-cli"
+    "make node cli",
+    "node cli"
   ],
   "author": "Franklin Shera",
   "license": "MIT",
