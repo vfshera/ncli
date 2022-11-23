@@ -1,11 +1,11 @@
 {
-  "name": "jscli",
+  "name": "make-node-cli",
   "version": "1.0.0",
   "description": "Start making Node Cli's Faster",
   "main": "dist/cli.js",
   "type": "module",
   "bin": {
-    "jscli": "bin/make-cli.js"
+    "make-node-cli": "bin/make-cli.js"
   },
   "scripts": {
     "build": "rollup -c rollup.config.js",
