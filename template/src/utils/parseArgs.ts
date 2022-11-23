@@ -35,8 +35,10 @@ function handleInvalidCommands(cmds: string[]) {
 }
 
 export default function parseArgs(rawArgs: Args): Options {
+  //should match options type ie have defaults of commands & flags
   let cliArgs = {
     help: false,
+    hi: false,
   };
 
   try {

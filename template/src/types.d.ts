@@ -1,6 +1,8 @@
 declare type Args = string[];
+
 declare type Options = {
   help: boolean;
+  hi: boolean;
 };
 declare interface Flag {
   name: string;
