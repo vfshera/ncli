@@ -19,7 +19,6 @@
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-typescript": "^9.0.2",
-    "@types/chalk-animation": "1.6.1",
     "@types/figlet": "1.5.5",
     "@types/gradient-string": "1.1.2",
     "@types/inquirer": "9.0.3",
@@ -31,10 +30,9 @@
     "typescript": "^4.9.3"
   },
   "dependencies": {
-    "@supercharge/filesystem": "2.3.0",
+    "@supercharge/fs": "3.4.0",
     "arg": "5.0.2",
     "chalk": "5.1.2",
-    "chalk-animation": "2.0.3",
     "cli-table3": "0.6.3",
     "execa": "6.1.0",
     "figlet": "1.5.2",

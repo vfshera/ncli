@@ -4,7 +4,7 @@ import path from "path";
 import ncp from "ncp";
 import { promisify } from "util";
 import { projectInstall } from "pkg-install";
-import fs from "@supercharge/filesystem";
+import fs from "@supercharge/fs";
 import Listr from "listr";
 import chalk from "chalk";
 
@@ -29,7 +29,7 @@ async function installDeps(targetDir: string) {
 
 async function updateJson(name: string) {
   const PkgJson = JSON.parse(
-    await fs.readFile(path.join(process.cwd(), name, "package.json"))
+    await fs.readFile(path.join(process.cwd(), name, "package.json"), "utf8")
   );
 
   PkgJson.name = name.toLowerCase();
@@ -55,7 +55,10 @@ async function updateJson(name: string) {
 }
 
 async function updateReadme(name: string) {
-  const README = await fs.readFile(path.join(process.cwd(), name, "README.md"));
+  const README = await fs.readFile(
+    path.join(process.cwd(), name, "README.md"),
+    "utf8"
+  );
   await fs.writeFile(
     path.join(process.cwd(), name, "README.md"),
     README.replaceAll("[cli-name]", name),
@@ -92,6 +95,9 @@ export async function createProject(name: string, install: boolean) {
 
   try {
     await tasks.run();
+
+    console.log();
+    console.log(chalk.yellow("Remeber to check README for instructions."));
 
     if (!install) {
       console.log();

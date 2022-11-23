@@ -2,32 +2,55 @@ import figlet from "figlet";
 import gradientString from "gradient-string";
 import { fileURLToPath } from "node:url";
 import path from "path";
-import fs from "@supercharge/filesystem";
+import fs from "@supercharge/fs";
 import chalk from "chalk";
-import { flagOptions } from "./flags";
-import { cmdOptions } from "./commands";
+import { flags, flagOptions } from "./flags";
+import { cmdOptions, commands } from "./commands";
 
-function usage() {
-  return `${chalk.hex("#1e1d40").bgHex("#33dd2d").bold(" USAGE ")}\n
-  ${
-    chalk.hex("#33dd2d").italic("make-cli") +
-    "  " +
-    chalk.hex("#0087d8").italic("new")
-  } 
-  ${
-    chalk.hex("#33dd2d").italic("make-cli") +
-    "  " +
-    chalk.hex("#0087d8").italic("--new-cli") +
-    "  " +
-    chalk.hex("#ff9248").italic("[cli-name]")
-  }`;
+function usage(name: string) {
+  let FlagUse = "";
+  let CmdUse = "";
+
+  // get command usage
+  commands.forEach((cmd) => {
+    CmdUse += `${
+      chalk.hex("#33dd2d").italic(name) +
+      "  " +
+      chalk.hex("#0087d8").italic(cmd.name)
+    } \n`;
+  });
+  //get flag usage
+  flags.forEach((fl) => {
+    FlagUse += `${
+      chalk.hex("#33dd2d").italic(name) +
+      "  " +
+      chalk.hex("#0087d8").italic("--" + fl.name)
+    } `;
+
+    if (fl.type === String) {
+      FlagUse += ` ${chalk
+        .hex("#ff9248")
+        .italic(`<${fl.option?.replaceAll(" ", "-")}>`)}`;
+    }
+
+    FlagUse += "\n";
+  });
+
+  return `
+${chalk.hex("#1e1d40").bgHex("#33dd2d").bold(" USAGE ")}\n
+${CmdUse} 
+${FlagUse}
+  `;
 }
 
 export default async function welcome(withOptions = false) {
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
 
-  const rawpkg = await fs.readFile(path.join(__dirname, "..", "package.json"));
+  const rawpkg = await fs.readFile(
+    path.join(__dirname, "..", "package.json"),
+    "utf8"
+  );
   const pkg = JSON.parse(rawpkg);
 
   figlet(pkg.name, function (err, data) {
@@ -50,7 +73,7 @@ ${chalk.hex("#1e1d40").bgWhite.bold(" Made by " + pkg.author + " ")}
 
     if (withOptions) {
       console.log(`
-${usage()} \n
+${usage(pkg.name)} \n
 ${cmdOptions()}
 ${flagOptions()}\n`);
     }

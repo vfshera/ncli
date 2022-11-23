@@ -3,7 +3,7 @@ import table from "./createTable";
 
 const optionsTable = table();
 // decare flags
-const flags: Flag[] = [
+export const flags: Flag[] = [
   {
     name: "help",
     alias: "h",
@@ -15,6 +15,7 @@ const flags: Flag[] = [
     alias: "n",
     description: "make new cli",
     type: String,
+    option: "cli name",
   },
 ];
 
@@ -39,7 +40,7 @@ export function flagOptions() {
 }
 
 //generate our flags
-export default function mapFlags() {
+export function mapFlags() {
   let cliFlags: any = {};
 
   flags.forEach((f) => {

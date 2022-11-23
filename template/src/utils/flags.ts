@@ -3,7 +3,7 @@ import table from "./createTable";
 
 const optionsTable = table();
 // decare flags
-const flags: Flag[] = [
+export const flags: Flag[] = [
   {
     name: "help",
     alias: "h",
@@ -33,7 +33,7 @@ export function flagOptions() {
 }
 
 //generate our flags
-export default function mapFlags() {
+export function mapFlags() {
   let cliFlags: any = {};
 
   flags.forEach((f) => {

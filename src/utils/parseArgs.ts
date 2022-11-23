@@ -2,8 +2,8 @@ import arg from "arg";
 import chalk from "chalk";
 import logSymbols from "log-symbols";
 
-import mapCommands from "./commands";
-import mapFlags from "./flags";
+import { mapCommands } from "./commands";
+import { mapFlags } from "./flags";
 
 const ARG_ERRORS = [
   "ARG_CONFIG_NONOPT_KEY",

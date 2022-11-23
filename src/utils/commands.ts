@@ -4,7 +4,7 @@ import table from "./createTable";
 const cmdTable = table();
 
 // decare commands
-const commands: Command[] = [
+export const commands: Command[] = [
   {
     name: "new",
     description: "generate new cli",
@@ -31,6 +31,6 @@ export function cmdOptions() {
 }
 
 //generate our commands
-export default function mapCommands(): string[] {
+export function mapCommands(): string[] {
   return commands.map((comm) => comm.name);
 }

@@ -4,10 +4,14 @@ import table from "./createTable";
 const cmdTable = table();
 
 // decare commands
-const commands: Command[] = [
+export const commands: Command[] = [
   {
     name: "help",
     description: "help command",
+  },
+  {
+    name: "hi",
+    description: "say hi",
   },
 ];
 

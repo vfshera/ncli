@@ -9,6 +9,7 @@ declare interface Flag {
   description: string;
   alias?: string | null;
   type: any;
+  option?: string;
 }
 declare interface Command {
   name: string;
