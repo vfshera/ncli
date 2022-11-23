@@ -97,13 +97,14 @@ export async function createProject(name: string, install: boolean) {
     await tasks.run();
 
     console.log();
-    console.log(chalk.yellow("Remeber to check README for instructions."));
+    console.log(chalk.yellow("Remember to check README for instructions."));
 
     if (!install) {
       console.log();
       console.log(chalk.green.bold(`cd ${name} && npm install`));
       console.log();
     } else {
+      console.log();
       console.log("%s Project ready", chalk.green.bold("DONE"));
       console.log();
       console.log(chalk.green.bold(`cd ${name} && npm run dev`));

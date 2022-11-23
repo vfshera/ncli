@@ -6,10 +6,6 @@ const cmdTable = table();
 // decare commands
 export const commands: Command[] = [
   {
-    name: "help",
-    description: "help command",
-  },
-  {
     name: "hi",
     description: "say hi",
   },
@@ -35,6 +31,6 @@ export function cmdOptions() {
 }
 
 //generate our commands
-export default function mapCommands(): string[] {
+export function mapCommands(): string[] {
   return commands.map((comm) => comm.name);
 }

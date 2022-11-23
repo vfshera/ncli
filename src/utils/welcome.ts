@@ -24,13 +24,11 @@ function usage(name: string) {
     FlagUse += `${
       chalk.hex("#33dd2d").italic(name) +
       "  " +
-      chalk.hex("#0087d8").italic("--" + fl.name)
+      chalk.hex("#ff9248").italic("--" + fl.name)
     } `;
 
     if (fl.type === String) {
-      FlagUse += ` ${chalk
-        .hex("#ff9248")
-        .italic(`<${fl.option?.replaceAll(" ", "-")}>`)}`;
+      FlagUse += ` ${chalk.italic(`<${fl.option?.replaceAll(" ", "-")}>`)}`;
     }
 
     FlagUse += "\n";
