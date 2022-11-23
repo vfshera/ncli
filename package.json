@@ -16,6 +16,10 @@
     "node cli"
   ],
   "author": "Franklin Shera",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:franklinshera/ncli.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-typescript": "^9.0.2",
