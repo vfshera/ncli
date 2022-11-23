@@ -9,7 +9,8 @@
   },
   "scripts": {
     "build": "rollup -c rollup.config.js",
-    "dev": "rollup -c rollup.config.js --watch"
+    "dev": "rollup -c rollup.config.js --watch",
+    "test": "echo \"No test specified\""
   },
   "keywords": [
     "make node cli",
