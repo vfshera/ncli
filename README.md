@@ -1,4 +1,4 @@
-![Preview](preview.png)
+![Preview](https://github.com/franklinshera/ncli/blob/main/preview.png)
 
 <p align="left">
 <img src="https://img.shields.io/npm/v/make-node-cli?label=version&style=plastic"/>
