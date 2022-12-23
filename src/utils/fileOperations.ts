@@ -79,7 +79,7 @@ export async function createProject(name: string, install: boolean) {
       task: () => copyTemplate(destination),
     },
     {
-      title: "Installing dependancies...",
+      title: "Installing dependencies...",
       skip: () => !install,
       task: () => installDeps(destination),
     },

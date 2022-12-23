@@ -32,5 +32,5 @@ export function cmdOptions() {
 
 //generate our commands
 export function mapCommands(): string[] {
-  return commands.map((comm) => comm.name);
+  return commands.map((command) => command.name);
 }
